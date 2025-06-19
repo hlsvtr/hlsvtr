@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VolkanTR | CDN | Stream</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    /* Arka plan video */
+    #video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    /* İçerik alanı */
+    .content {
+      position: relative;
+      height: 100vh;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      backdrop-filter: brightness(0.8);
+    }
+
+    .play-btn {
+      background: rgba(255, 0, 0, 1);
+      border: 2px solid white;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+
+    .play-btn i {
+      font-size: 40px;
+      color: white;
+    }
+
+    .telegram-btn {
+      background-color: #0088cc;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      margin-top: 40px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .telegram-btn:hover {
+      background-color: #007ab8;
+    }
+
+    /* Modal video */
+    #videoModal video {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Arka plan video -->
+  <video id="video-bg" autoplay muted loop playsinline>
+    <source src="https://volkantr.online/ozel/goremebalon/index.m3u8" type="application/x-mpegURL">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
+
+  <!-- İçerik -->
+  <div class="content">
+    <div class="play-btn" data-bs-toggle="modal" data-bs-target="#videoModal">
+      <i class="bi bi-play-fill"></i>
+    </div>
+    <h1><b>VolkanTR <font color="red">Stream</font></b></h1>
+    <p>Farklılık Yaratmaya Hazır mısın!</p>
+    <a href="https://t.me/VTRvolkan" target="_blank" class="telegram-btn">📲 Telegram</a>
+  </div>
+
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-body p-0">
+          <video id="modal-video" controls autoplay>
+            <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap ve Icon -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</body>
+</html>
