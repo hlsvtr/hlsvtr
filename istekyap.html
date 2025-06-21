@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>İstek Yap - VolkanTR TV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body {
+      margin: 0;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+    header {
+      background: #0af;
+      padding: 20px;
+      font-size: 26px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+    .form-container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      margin: 40px auto;
+      max-width: 500px;
+      width: 90%;
+      backdrop-filter: blur(10px);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      padding: 12px 24px;
+      background: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e64a19;
+    }
+    .back-button {
+      margin: 20px auto;
+      padding: 12px 24px;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .back-button:hover {
+      background: #0097a7;
+    }
+    footer {
+      margin-top: auto;
+      padding: 15px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* Popup */
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup-box {
+      background: #1e2a38;
+      color: #fff;
+      padding: 30px;
+      max-width: 90%;
+      width: 400px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      position: relative;
+      text-align: left;
+    }
+    .popup-box h3 {
+      margin-top: 0;
+      color: #ffcc00;
+    }
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #fff;
+    }
+    .popup-close:hover {
+      color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <header>🔴VolkanTR <font color="red"> TV</font><br/>📨 İstek Yap</header>
+  <h3><font color="yellow">Lütfen Saçma Sapan Şeyler Yazmayın. Gerçekten İstekte Bulunacaksanız Bu form,u Dikkate Alıp isteğinizi yazıp Gönderin.</font></h3>
+
+  <!-- 🧡 POPUP BAŞLANGIÇ -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <div class="popup-close" onclick="document.getElementById('popup').style.display='none'">×</div>
+      <h3>📢 Dikkat!</h3>
+      <p>
+        🔸 Bu form yalnızca film, dizi veya klip istekleri içindir.<br><br>
+        🔸 18+ içerikler, hakaret içeren veya alakasız istekler **kabul edilmeyecektir**.<br><br>
+        🔸 Günde en fazla 1 istek gönderebilirsiniz.
+      </p>
+    </div>
+  </div>
+  <!-- 🧡 POPUP BİTİŞ -->
+
+  <div class="form-container">
+    <form method="POST" action="istek_gonder.php">
+      <input type="text" name="isim" placeholder="Telegram Dm Adınız (Zorunlu)" />
+      <textarea name="istek" placeholder="Film adını  yazın, veya Dizi adını ve sezon ve bölüm olarak yazın..." required></textarea>
+      <button type="submit">Gönder</button>
+    </form>
+  </div>
+
+  <a href="index.html" class="back-button">🔙 Yayına Dön</a>
+
+  <footer>© <?= date('Y') ?> VolkanTR Stream</footer>
+</body>
+</html>
